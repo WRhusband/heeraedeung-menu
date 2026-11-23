@@ -114,8 +114,8 @@ h1 {
 
 /* 공개 화면 */
 .photo {
-  margin: 0 auto 26px;
-  width: 100%;
+  margin: 0 -16px 24px;
+  width: calc(100% + 32px);
   aspect-ratio: 4 / 3;
   background: #10151d;
   border: 8px solid #fff;
@@ -131,7 +131,7 @@ h1 {
 .message {
   font-family: var(--font-kid);
   font-weight: 700;
-  font-size: 40px;
+  font-size: 33px;
   line-height: 1.3;
   margin: 0;
   text-wrap: balance;
@@ -141,19 +141,19 @@ h1 {
 .meet {
   font-family: var(--font-kid);
   font-weight: 700;
-  font-size: 32px;
+  font-size: 27px;
   line-height: 1.3;
-  margin: 14px 0 0;
+  margin: 10px 0 0;
   color: var(--ink);
 }
 .heart { color: var(--seal); }
-.sheep { display: block; width: 132px; height: auto; margin: 18px auto 0; }
+.sheep { display: block; width: 112px; height: auto; margin: 14px auto 0; }
 .wobble .w { display: inline-block; white-space: nowrap; }
 .wobble .c { display: inline-block; }
 .sign {
   font-family: var(--font-kid);
   font-weight: 700;
-  font-size: 28px;
+  font-size: 23px;
   margin: 6px 0 0;
   color: var(--ink);
 }
@@ -170,8 +170,8 @@ h1 {
 
 @media (max-width: 360px) {
   h1 { font-size: 34px; }
-  .message { font-size: 33px; }
-  .meet { font-size: 27px; }
+  .message { font-size: 28px; }
+  .meet { font-size: 23px; }
   .sheet { padding: 34px 22px 30px; }
 }
 @media (prefers-reduced-motion: reduce) {
