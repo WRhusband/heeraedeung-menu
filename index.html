@@ -7,7 +7,7 @@
 <title>희래등 메뉴</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
 <style>
 /* 레이아웃: 중화요리집 붉은 바탕 위에 금테 메뉴판 한 장. 표지(차림표) → 탭 한 번 → 공개 화면. 단일 테마. */
 :root {
@@ -20,6 +20,7 @@
   --seal: #b3201f;         /* 홍색 (강조) */
   --line: #c9a24a;        /* 금테 */
   --font-display: "Gowun Batang", "Nanum Myeongjo", "Apple SD Gothic Neo", serif;
+  --font-kid: "Gaegu", "Gowun Dodum", "Apple SD Gothic Neo", sans-serif;   /* 아이 손글씨 */
   --font-body: "Gowun Dodum", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 }
 * { box-sizing: border-box; }
@@ -128,26 +129,38 @@ h1 {
 .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .photo .placeholder { color: #8f9aad; font-size: 16px; padding: 12px; }
 .message {
-  font-family: var(--font-display);
+  font-family: var(--font-kid);
   font-weight: 700;
-  font-size: 32px;
-  line-height: 1.45;
+  font-size: 40px;
+  line-height: 1.3;
   margin: 0;
   text-wrap: balance;
   word-break: keep-all;
 }
 .message .call { color: var(--seal); display: block; }
-.sign {
-  font-family: var(--font-display);
-  font-size: 22px;
-  margin: 22px 0 0;
+.meet {
+  font-family: var(--font-kid);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.3;
+  margin: 14px 0 0;
   color: var(--ink);
 }
-.sign::before { content: ""; display: block; width: 56px; height: 1px; background: var(--ink); margin: 0 auto 16px; }
+.sheep { display: block; width: 132px; height: auto; margin: 18px auto 0; }
+.wobble .w { display: inline-block; white-space: nowrap; }
+.wobble .c { display: inline-block; }
+.sign {
+  font-family: var(--font-kid);
+  font-weight: 700;
+  font-size: 28px;
+  margin: 6px 0 0;
+  color: var(--ink);
+}
 
-#reveal .photo, #reveal .message, #reveal .sign { animation: rise .9s ease-out both; }
+#reveal .photo, #reveal .message, #reveal .meet, #reveal .sheep, #reveal .sign { animation: rise .9s ease-out both; }
 #reveal .message { animation-delay: .5s; }
-#reveal .sign { animation-delay: 1.1s; }
+#reveal .meet { animation-delay: 1.1s; }
+#reveal .sheep, #reveal .sign { animation-delay: 1.6s; }
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; } }
 #reveal .photo { animation-name: risePhoto; }
 @keyframes risePhoto { from { opacity: 0; transform: translateY(14px) rotate(-1.5deg) scale(.96); } to { opacity: 1; transform: rotate(-1.5deg); } }
@@ -156,11 +169,12 @@ h1 {
 
 @media (max-width: 360px) {
   h1 { font-size: 34px; }
-  .message { font-size: 27px; }
+  .message { font-size: 33px; }
+  .meet { font-size: 27px; }
   .sheet { padding: 34px 22px 30px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  #reveal .photo, #reveal .message, #reveal .sign { animation: none; }
+  #reveal .photo, #reveal .message, #reveal .meet, #reveal .sheep, #reveal .sign { animation: none; }
 }
 </style>
 </head>
@@ -184,8 +198,28 @@ h1 {
     <div class="photo" id="photo" tabindex="-1">
       <img src="photo.jpg" alt="복동이 초음파 사진" width="1200" height="900">
     </div>
-    <p class="message"><span class="call">할아버지, 할머니</span>얼른 보고 싶어요.</p>
-    <p class="sign">복동이 올림</p>
+    <p class="message wobble"><span class="call">할아버지, 할머니</span>얼른 보고 싶어요.</p>
+    <p class="meet wobble">내년 7월에 만나요~</p>
+    <svg class="sheep" viewBox="0 0 160 126" role="img" aria-label="붉은 양">
+      <rect x="62" y="92" width="10" height="26" rx="5" fill="#5a3a32"/>
+      <rect x="100" y="92" width="10" height="26" rx="5" fill="#5a3a32"/>
+      <circle cx="141" cy="70" r="9" fill="#e2645a"/>
+      <g fill="#d9463f">
+        <circle cx="60" cy="72" r="23"/><circle cx="78" cy="52" r="23"/><circle cx="104" cy="50" r="23"/>
+        <circle cx="122" cy="70" r="23"/><circle cx="104" cy="88" r="22"/><circle cx="78" cy="89" r="22"/>
+        <circle cx="90" cy="70" r="27"/>
+      </g>
+      <g fill="#e9736a"><circle cx="96" cy="56" r="5"/><circle cx="112" cy="72" r="4"/><circle cx="86" cy="80" r="4"/></g>
+      <ellipse cx="22" cy="60" rx="10" ry="6" transform="rotate(-25 22 60)" fill="#f1c7a8"/>
+      <ellipse cx="70" cy="58" rx="10" ry="6" transform="rotate(25 70 58)" fill="#f1c7a8"/>
+      <ellipse cx="46" cy="66" rx="22" ry="20" fill="#fdebd9"/>
+      <g fill="#d9463f"><circle cx="35" cy="48" r="9"/><circle cx="46" cy="44" r="11"/><circle cx="57" cy="48" r="9"/></g>
+      <circle cx="38" cy="66" r="3" fill="#2b1a14"/><circle cx="54" cy="66" r="3" fill="#2b1a14"/>
+      <circle cx="39" cy="65" r="1" fill="#fff"/><circle cx="55" cy="65" r="1" fill="#fff"/>
+      <circle cx="31" cy="74" r="4.5" fill="#f6a5a0"/><circle cx="61" cy="74" r="4.5" fill="#f6a5a0"/>
+      <path d="M42 74 q4 4 8 0" fill="none" stroke="#2b1a14" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <p class="sign wobble">복동이 올림</p>
   </section>
 </main>
 
@@ -196,6 +230,34 @@ h1 {
   var cover = document.getElementById('cover');
   var reveal = document.getElementById('reveal');
   var canvas = document.getElementById('petals');
+
+  // 글자마다 기울기와 높이를 조금씩 달리해 아이가 쓴 것처럼 삐뚤빼뚤하게
+  var n = 0;
+  function wobble(node) {
+    var kids = Array.prototype.slice.call(node.childNodes);
+    kids.forEach(function (k) {
+      if (k.nodeType === 1) { wobble(k); return; }
+      if (k.nodeType !== 3) return;
+      var frag = document.createDocumentFragment();
+      k.textContent.split(/(\s+)/).forEach(function (word) {
+        if (!word) return;
+        if (/^\s+$/.test(word)) { frag.appendChild(document.createTextNode(' ')); return; }
+        var w = document.createElement('span'); w.className = 'w';
+        Array.from(word).forEach(function (ch) {
+          var c = document.createElement('span'); c.className = 'c'; c.textContent = ch;
+          n++;
+          var rot = ((n * 37) % 13) - 6;            // -6 ~ 6도
+          var dy = ((n * 53) % 9) - 4;              // -4 ~ 4px
+          var sc = 0.94 + ((n * 29) % 13) / 100;    // 0.94 ~ 1.06배
+          c.style.transform = 'translateY(' + dy + 'px) rotate(' + rot + 'deg) scale(' + sc + ')';
+          w.appendChild(c);
+        });
+        frag.appendChild(w);
+      });
+      node.replaceChild(frag, k);
+    });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.wobble'), wobble);
 
   document.getElementById('open').addEventListener('click', function () {
     cover.hidden = true;
